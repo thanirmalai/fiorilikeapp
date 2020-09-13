@@ -1,0 +1,20 @@
+<raj:FragmentDefinition xmlns:raj="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
+                        xmlns:anu="cap.fin.ar.customControls">
+
+			<!--<anu:Heading text = "Ironman" color = "red" border="2px solid red" back="red"></anu:Heading>-->
+		 <!--   <anu:Heading text = "Superman" back="orange"></anu:Heading>	 -->
+		   <anu:AmazingButton text="onClick" hover="onPress"></anu:AmazingButton>
+
+		<f:SimpleForm>
+			<f:content>
+				<Label text="Supplier ID"></Label>
+				<Text text="{ToSupplier/BP_ID}"></Text>
+				<Label text="Supplier Name"></Label>
+				<Text text="{ToSupplier/COMPANY_NAME}"></Text>
+				<Label text="Address"></Label>
+				<Text text="{ToSupplier/STREET} {ToSupplier/BUILDING}"></Text>
+				<Label text="Location"></Label>
+				<Text text="{ToSupplier/CITY} {ToSupplier/COUNTRY}"></Text>
+				</f:content>
+			</f:SimpleForm>
+</raj:FragmentDefinition>

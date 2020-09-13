@@ -1,0 +1,143 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"type": "application",
+		"id": "cap.fin.ar",
+		"title": "{{applicationTitle}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"ach": "FIC-CON-AR",
+		"description": "{{applicationDescription}}",
+		"tags": {
+			"keywords": ["{{keyword1}}"]
+		},
+		"dataSources": {
+			"ZANNA_JUNE20_SRV": {
+				"uri": "/sap/opu/odata/sap/ZANNA_JUNE20_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_belize"]
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"resources": {},
+		"dependencies": {
+			"minUI5Version": "1.56.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"models": {
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {},
+				"dataSource": "ZANNA_JUNE20_SRV"
+			},
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {},
+				"uri": "i18n/i18n.properties"
+			},
+			"old": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "models/mockData/fruits.json"
+			}
+
+		},
+		"rootView": {
+			"viewName": "cap.fin.ar.view.App",
+			"type": "XML",
+			"id": "idApp"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "cap.fin.ar.view",
+				"controlId": "anna"
+			},
+			"routes": [{
+				"name": "master",
+				"pattern": "",
+				"target": ["initial", "khali"]
+			}, {
+				"name": "create",
+				"pattern": "createsheet",
+				"target": ["initial", "newrecord"]
+			}, {
+				"name": "drilldown",
+				"pattern": "joker/{fruitId}",
+				"target": ["initial", "data"]
+			}, {
+				"name": "toolbarpage",
+				"pattern": "toolbarpage",
+				"target": ["initial", "toolbar"]
+			}, {
+				"name": "StoryBoard",
+				"pattern": "StoryBoard",
+				"target": ["StoryBoard"]
+			}],
+			"targets": {
+				"initial": {
+					"viewName": "View1",
+					"controlAggregation": "masterPages"
+				},
+				"newrecord": {
+					"viewName": "InputPage",
+					"controlAggregation": "detailPages"
+				},
+				"khali": {
+					"viewName": "khali",
+					"controlAggregation": "detailPages"
+				},
+				"data": {
+					"viewName": "View2",
+					"controlAggregation": "detailPages"
+				},
+				"toolbar": {
+					"viewType": "XML",
+					"viewName": "newpage",
+					"controlAggregation": "detailPages"
+				},
+				"InputPage": {
+					"viewType": "XML",
+					"viewName": "InputPage"
+				},
+				"StoryBoard": {
+					"viewType": "XML",
+					"viewName": "StoryBoard",
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zanubhavadvance/webapp",
+		"_version": "1.1.0"
+	}
+}

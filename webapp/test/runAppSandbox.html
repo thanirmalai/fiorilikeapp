@@ -1,0 +1,71 @@
+<html>
+	<head>
+			
+		<script>
+			window["sap-ushell-config"] = {
+				defaultRenderer: "fiori2",
+				renderers: {
+            fiori2: {
+              componentData: {
+                config: {
+                  search: "hidden"
+                }
+              }
+            }
+          },
+				applications: {
+					"Annamalai-lookup":{
+						additionalInformation: 'SAPUI5.Component=cap.fin.ar',
+						applicationType: "URL",
+						url:  "../",
+						title: "ProductApp",
+						description: "Annamalai Sample"
+					}
+				}
+			};
+		</script>
+			<!--<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>-->
+			<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>-->
+
+		  
+
+		
+		
+		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		        data-sap-ui-libs = "sap.m, sap.ushell, sap.ui.comp"
+		        data-sap-ui-theme = "sap_bluecrystal"
+		        data-sap-ui-resourceRoots='{
+		           "cap.fin.ar" : "../"
+		        }'
+		        data-sap-ui-bindingSyntax = "complex"></script>
+		        
+		        <script>
+		        
+		       
+		           sap.ui.getCore().attachInit(function(){
+		         //	new sap.m.Shell({
+		         sap.ushell.Container.createRenderer().placeAt("content");
+
+		        // 		app : new sap.ui.core.ComponentContainer({
+		        // 			name :  'cap.fin.ar',
+		        // 			height : "100%"
+		         //		})
+		         //	})
+		         	//.placeAt("content");
+		         });
+		        	
+	
+
+		        // var oComponentContainer = new sap.ui.core.ComponentContainer({
+		        //     name : 'cap.fin.ar'	
+		        // });
+          //       oComponentContainer.placeAt("content");
+		        </script>
+	</head>
+	<body>
+	  <div id="content"></div>
+		
+	</body>
+	
+	
+</html>

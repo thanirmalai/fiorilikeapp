@@ -1,0 +1,91 @@
+<html>
+	<head>
+			
+		<script>
+			window["sap-ushell-config"] = {
+				defaultRenderer: "fiori2",
+				renderers: {
+            fiori2: {
+              componentData: {
+                config: {
+                  search: "hidden"
+                }
+              }
+            }
+          },
+				applications: {
+					"Annamalai-lookup":{
+						additionalInformation: 'SAPUI5.Component=cap.fin.ar',
+						applicationType: "URL",
+						url:  "./",
+						title: "ProductApp",
+						description: "Annamalai Sample"
+					}
+				}
+			};
+		</script>
+			<!--<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>-->
+			<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>--&gt;
+
+		  
+
+		
+		
+		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m, sap.ushell, sap.ui.comp" data-sap-ui-theme="sap_bluecrystal" data-sap-ui-resourceroots="{
+		           &quot;cap.fin.ar&quot; : &quot;../&quot;
+		        }" data-sap-ui-bindingsyntax="complex"></script>
+		        
+		        <script>
+		        
+		       
+		           sap.ui.getCore().attachInit(function(){
+		         //	new sap.m.Shell({
+		         sap.ushell.Container.createRenderer().placeAt("content");
+
+		        // 		app : new sap.ui.core.ComponentContainer({
+		        // 			name :  'cap.fin.ar',
+		        // 			height : "100%"
+		         //		})
+		         //	})
+		         	//.placeAt("content");
+		         });
+		        	
+	
+
+		        // var oComponentContainer = new sap.ui.core.ComponentContainer({
+		        //     name : 'cap.fin.ar'	
+		        // });
+          //       oComponentContainer.placeAt("content");
+		        </script>
+	<script src="/resources/sap-ui-core.js" id="sap-ui-bootstrap" data-sap-ui-libs="sap.ui.commons"></script>
+	
+<script>
+var bRunWithMock = true;
+var sRunWithMock = jQuery.sap.getUriParameters().get('run-with-mock');
+if (sRunWithMock === 'false') {
+bRunWithMock = false;
+}
+if (bRunWithMock) {
+jQuery.sap.require('sap.ui.core.util.MockServer');
+var uri = '/sap/opu/odata/sap/ZANNA_JUNE20_SRV/';
+var oMock = new sap.ui.core.util.MockServer({rootUri : uri});
+var _sAppModulePath = "cap.fin.ar/";
+var sMetadataPath = "localService/metadata.xml";
+var sMetadataUrl = jQuery.sap.getModulePath(_sAppModulePath) + "/" + sMetadataPath;
+var sMockdataBaseUrlPath = sMetadataUrl.replace(/[^/]+$/, 'mockdata');
+oMock.simulate(sMetadataUrl, { sMockdataBaseUrl : sMockdataBaseUrlPath, bGenerateMissingMockData : true });
+oMock.start();
+	sap.ui.getCore().attachInit(function () {
+		console.log('Running in demo mode with mock data.');
+	});
+}
+</script>
+
+</head>
+	<body>
+	  <div id="content"></div>
+		
+	</body>
+	
+	
+</html>
